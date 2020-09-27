@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Alien = require('../models/alien')
+const mongodb = require('mongodb');
+
 
 //get all the data from db
 router.get("/", async (req, res) => {
@@ -48,13 +50,13 @@ router.patch('/:id' , async (req, res) => {
     }
 })
 //delete
-// router.delete('/:id' ,async (req, res) => {
-//     try{
-//         const alien = await Alien.deleteById(req.params.id);
-//         res.send("delete success " + alien.name);
-//     }catch (err) {
-//         res.send("Error" + err)
-//     }
-// })
+router.delete('/:id' ,async (req, res) => {
+    try{
+        const alien = await Alien.deleteOne({_id: new mongodb.ObjectId(req.params.id)});
+        res.send("delete success " + alien.name);
+    }catch (err) {
+        res.send("Error" + err)
+    }
+})
 
 module.exports = router
