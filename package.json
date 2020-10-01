@@ -4,11 +4,12 @@
   "description": "my first nodejs",
   "main": "app.js",
   "scripts": {
-    "start" : "nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "vipisanan1@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@okta/jwt-verifier": "0.0.14",
     "express": "^4.17.1",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.7"
